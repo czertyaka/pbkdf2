@@ -1,4 +1,4 @@
-#include "cmd_args.hpp"
+#include "args_parser.hpp"
 
 ArgsParser::ArgsParser() : desc_("Allowed options") {
     namespace po = boost::program_options;

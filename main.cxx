@@ -9,7 +9,7 @@
 #include <sstream>
 #include <vector>
 
-#include "cmd_args.hpp"
+#include "args_parser.hpp"
 
 const char *g_help_string =
     "Usage: pbkdf2 [OPTIONS]\n"
