@@ -1,13 +1,13 @@
+#include <openssl/err.h>
+#include <openssl/evp.h>
+#include <openssl/rand.h>
+
+#include <boost/algorithm/hex.hpp>
+#include <boost/json/src.hpp>
 #include <iostream>
 #include <iterator>
 #include <sstream>
 #include <vector>
-
-#include <boost/algorithm/hex.hpp>
-#include <boost/json/src.hpp>
-#include <openssl/err.h>
-#include <openssl/evp.h>
-#include <openssl/rand.h>
 
 #include "cmd_args.hpp"
 
