@@ -4,7 +4,7 @@ project(PBKDF2 CXX)
 find_package(Boost REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-add_executable(pbkdf2 main.cxx args_parser.cxx)
+add_executable(pbkdf2 src/main.cxx src/args_parser.cxx)
 target_link_libraries(pbkdf2 Boost::program_options)
 target_include_directories(pbkdf2 PRIVATE Boost::headers)
 target_link_libraries(pbkdf2 OpenSSL::SSL)
