@@ -2,6 +2,7 @@
 
 #include <boost/program_options.hpp>
 #include <cstddef>
+#include <string>
 
 class ArgsParser {
   public:
