@@ -1,6 +1,8 @@
 # pbkdf2
 
-Derive key with PKCS5 PBKDF2 HMAC function and automatically generated salt. Makes use of SHA-512 function. Output is given as JSON-string with hash and salt as hex-strings.
+Derive key with PKCS5 PBKDF2 HMAC function and automatically generated or given salt.
+Makes use of SHA-512 function.
+Output is given as JSON-string with hash and salt as hex-strings (if generated).
 
 ## build
 
@@ -25,16 +27,23 @@ $ ./build/Release/pbkdf2 -p "password" -i 100 -s 32 -k 128
 ```
 
 ```console
+$ ./build/Release/pbkdf2 -p "67890" -s "12345678"
+{"hash":"4403f81e3d1c9158b7b922195e3170e4f4419b78b2aa0ca4bfbe94da35405aadf05eea0f6062991371a7d4a1f143f36ba8ccbfb2b75f0e2aaa40b0d2aa77db4a"}
+```
+
+```console
 $ ./build/Release/pbkdf2 --help
 Usage: pbkdf2 [OPTIONS]
-Derive key with PKCS5 PBKDF2 HMAC function and automatically generated salt.Makes use of SHA-512 function.
+Derive key with PKCS5 PBKDF2 HMAC function and automatically generated or given salt. Makes use of SHA-512 function.
 Output is given as JSON-string with hash and salt as hex-strings.
 
 Allowed options:
   -h [ --help ]               produce help message
   -p [ --password ] arg       password to be encoded
+  -s [ --salt ] arg           salt
   -i [ --iter ] arg (=10)     iterations number
-  -s [ --saltsize ] arg (=64) salt size, bytes
+  -z [ --saltsize ] arg (=64) generated salt size, bytes (ignored when -s is 
+                              set)
   -k [ --keysize ] arg (=64)  key size, bytes
 
 ```

@@ -6,8 +6,9 @@ ArgsParser::ArgsParser() : desc_("Allowed options") {
     desc_.add_options()
         ("help,h",                                                                      "produce help message")
         ("password,p",  po::value<decltype(password_)>(&password_)->required(),         "password to be encoded")
+        ("salt,s",      po::value<decltype(salt_)>(&salt_),                             "salt")
         ("iter,i",      po::value<decltype(iter_)>(&iter_)->default_value(10),          "iterations number")
-        ("saltsize,s",  po::value<decltype(saltSize_)>(&saltSize_)->default_value(64),  "salt size, bytes")
+        ("saltsize,z",  po::value<decltype(saltSize_)>(&saltSize_)->default_value(64),  "generated salt size, bytes (ignored when -s is set)")
         ("keysize,k",   po::value<decltype(keySize_)>(&keySize_)->default_value(64),    "key size, bytes");
     // clang-format no
 }
@@ -27,6 +28,8 @@ const boost::program_options::options_description& ArgsParser::Description()
 bool ArgsParser::Help() const { return vm_.count("help"); }
 
 const std::string& ArgsParser::Password() const { return password_; }
+
+const std::string& ArgsParser::Salt() const { return salt_; }
 
 std::size_t ArgsParser::Iter() const { return iter_; }
 
